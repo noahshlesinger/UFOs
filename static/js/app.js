@@ -35,9 +35,15 @@ function updateFilters() {
   let elementCountry = d3.select("#country").property("element")
   let elementShape = d3.select("#shape").property("element")
     // 4b. Save the value that was changed as a variable.
-  let value = d3.select("#element").property("value")
+  let valueState = d3.select("#city").property("value")
+  let valueCity = d3.select("#state").property("value")
+  let valueCountry = d3.select("#country").property("value")
+  let valueShape = d3.select("#shape").property("value")
     // 4c. Save the id of the filter that was changed as a variable.
-  let filter_id = d3.select("#element").property("id")
+  let filterId = d3.select("#city").property("id")
+  let filterState = d3.select("#state").property("id")
+  let filterCountry = d3.select("#country").property("id")
+  let filterShape = d3.select("#shape").property("id")
   
     // 5. If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object.
