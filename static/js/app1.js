@@ -1,11 +1,11 @@
 // import the data from app.js
-const tableData = data;
+var tableData = data
 
 // Reference the HTML table using d3
 var tbody = d3.select("tbody");
 
 
-  function buildTable(data) {
+function buildTable(data) {
     // First, clear out any existing data
     tbody.html("");
   
@@ -21,7 +21,10 @@ var tbody = d3.select("tbody");
         let cell = row.append("td");
         cell.text(val);
         }
-      );
+     );
+    });
+}
+
       function handleClick() {
         // Grab the datetime value from the filter
         let date = d3.select("#datetime").property("value");
@@ -46,5 +49,3 @@ var tbody = d3.select("tbody");
       
       // Build the table when the page loads
       buildTable(tableData);
-    
-  }}

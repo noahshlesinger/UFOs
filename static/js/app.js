@@ -42,14 +42,19 @@ function updateFilters() {
     // 5. If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object.
   if (element) { 
-    filters = filters.filter( row => row.city === elementCity);
+    filters = filters.append(row =>row.city === elementCity)
+    filters = filters.append(row =>row.state === elementState)
+    filters = filters.append(row =>row.country === elementCountry)
+    filters = filters.append(row =>row.shape === elementShape)
+
+
           
 
 
   }
   
     // 6. Call function to apply all filters and rebuild the table
-    filterTable();
+    filterTable(filters);
   
   }
   
@@ -61,14 +66,16 @@ function updateFilters() {
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    
+    if (element) {
+      filters = filters.filter( row => row.city === elementCity);
+    }
   
     // 10. Finally, rebuild the table using the filtered data
-    
+    let filteredData = tableData;
   }
   
   // 2. Attach an event to listen for changes to each filter
-  d3.selectAll("#filter-btn").on("change", updateFilters);
+  d3.selectAll("#filter-btn").on("click", updateFilters);
   
   // Build the table when the page loads
   buildTable(tableData);
